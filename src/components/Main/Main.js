@@ -43,6 +43,10 @@ const Main = () => {
         return false;
     });
 
+    const active = todos.filter(todo => {
+        return !todo.completed;
+    });
+
     return (
         <main className={styles.main}>
             <div className={styles.title}>
@@ -56,6 +60,7 @@ const Main = () => {
             onCheck={handleCheck}
             onFilter={handleFilter}
             filterMode={filterMode}
+            active={active}
             RemoveCompleted={handleRemoveCompleted}
             />
             <span className={styles.footer}>Drag and drop to record list</span>
