@@ -130,26 +130,33 @@ button {
   
 .cross::before,
 .cross::after {
-content: "";
-position: absolute;
-transform: translate(-50%, -50%);
-width: 22px;
-height: 1px; 
-background-color: #494C6B; 
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 1px; 
+    background-color: #494C6B; 
 }
 
 .cross::before {
-transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .cross::after {
-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 li:hover .cross {
-display: block;
+    display: block;
 }
   
 .activeFilter {
     color: hsl(220, 98%, 61%);
+}
+
+.emptyList {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid hsl(236, 33%, 92%);
+    color: hsl(236, 9%, 61%);
 }

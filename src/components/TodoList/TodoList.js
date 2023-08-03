@@ -5,7 +5,10 @@ const TodoList = ({ todos, onRemove, onCheck, onFilter, filterMode, RemoveComple
     return (
         <div className={styles.board}>
             <div className={styles.todoContainer}>
-                <ul>
+                {todos.length === 0 ? (
+                    <div className={styles.emptyList}>No Items found</div>
+                ) : (
+                    <ul>
                     {todos.map(todo => {
                         const outerToggle = !todo.completed ? styles.outerCircle : styles.outerCheck;
                         const innerToggle = !todo.completed ? styles.innerCircle : styles.innerCheck;
@@ -26,6 +29,7 @@ const TodoList = ({ todos, onRemove, onCheck, onFilter, filterMode, RemoveComple
                         )
                     })}
                 </ul>
+                )}
             </div>
             <div className={styles.panelContainer}>
                 <button className={styles.itemsNum}>{active.length} items left</button>
