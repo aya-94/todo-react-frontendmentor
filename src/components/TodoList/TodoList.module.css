@@ -1,0 +1,155 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 25px 30px 10px rgba(210, 211, 219, 0.37);
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    border-bottom: 1px solid hsl(236, 33%, 92%);
+    padding: 25px;
+    position: relative;
+}
+
+.titleValue {
+    margin-left: 50px;
+    font-size: 18px;
+    color: hsl(235, 19%, 35%);
+    cursor: pointer;
+}
+
+.titleCheck {
+    margin-left: 50px;
+    font-size: 18px;
+    color: hsl(233, 11%, 84%);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+}
+
+.outerCircle {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: hsl(236, 33%, 92%);
+    width: 25px;
+    height: 25px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.outerCircle:hover {
+    background: -webkit-linear-gradient(left top, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+}
+
+.outerCheck {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: -webkit-linear-gradient(left top, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    width: 25px;
+    height: 25px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.innerCircle {
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    width: 23px;
+    height: 23px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.innerCheck {
+    position: absolute;
+    left: 6.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 1000px;
+    cursor: pointer;
+    background: url('../../../images/icon-check.svg');
+    background-size: cover;
+    z-index: 99;
+}
+
+.panelContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+button {
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 20px 10px;
+    background: #fff;
+    color: hsl(236, 9%, 61%);
+}
+
+.sortButtons button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sortButtons button:hover,
+.clearComplete:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.clearComplete {
+    cursor: pointer;
+}
+
+.cross {
+    width: 18px;
+    position: absolute;
+    background-color: #fff;
+    cursor: pointer;
+    right: 24px;
+    top: 35px;
+    display: none;
+}
+  
+.cross::before,
+.cross::after {
+content: "";
+position: absolute;
+transform: translate(-50%, -50%);
+width: 22px;
+height: 1px; 
+background-color: #494C6B; 
+}
+
+.cross::before {
+transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross::after {
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+li:hover .cross {
+display: block;
+}
+  
+.activeFilter {
+    color: hsl(220, 98%, 61%);
+}

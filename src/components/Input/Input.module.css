@@ -1,0 +1,35 @@
+.inputContainer {
+    position: relative;
+    display: inline-block;
+}
+
+input {
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 75px;
+}
+
+input::placeholder {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;   
+}
+
+input:focus {
+    outline: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px; 
+}
+
+.circleElement {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid hsl(236, 33%, 92%);
+}
