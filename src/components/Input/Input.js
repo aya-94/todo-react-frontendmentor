@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from '../../store/auth-context';
 import styles from './Input.module.css';
 
 const Input = ({ onPress }) => {
@@ -17,8 +18,10 @@ const Input = ({ onPress }) => {
         }
     }
 
+    const ctx = useContext(AuthContext)
+
     return (
-        <div className={styles.inputContainer}>
+        <div className={`${styles.inputContainer} ${!ctx.isLightMode ? styles.darkInput : styles.lightInput}`}>
             <span className={styles.circleElement}></span>
             <input 
             type="text" 

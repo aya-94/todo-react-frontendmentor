@@ -11,3 +11,11 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
+.darkBackground {
+  background-color: hsl(235, 21%, 11%);
+}
+
+.lightBackground {
+  background-color: hsl(0, 0%, 98%);
+}

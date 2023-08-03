@@ -1,10 +1,12 @@
 import styles from './TodoList.module.css';
+import React, { useContext } from 'react';
+import AuthContext from '../../store/auth-context';
 
 const TodoList = ({ todos, onRemove, onCheck, onFilter, filterMode, RemoveCompleted, active }) => {
-
+    const ctx = useContext(AuthContext)
     return (
-        <div className={styles.board}>
-            <div className={styles.todoContainer}>
+        <div className={`${styles.board} ${!ctx.isLightMode ? styles.darkBoard : styles.lightBoard}`}>
+            <div>
                 {todos.length === 0 ? (
                     <div className={styles.emptyList}>No Items found</div>
                 ) : (

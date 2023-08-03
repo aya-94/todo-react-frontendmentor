@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Input from '../Input/Input';
 import TodoList from '../TodoList/TodoList';
 import styles from './Main.module.css';
+import AuthContext from '../../store/auth-context';
 
-const Main = () => {
+const Main = ({ onModeChange }) => {
     const [todos, setTodos] = useState([]);
     const [filterMode, setFilterMode] = useState('all');
 
@@ -47,11 +48,13 @@ const Main = () => {
         return !todo.completed;
     });
 
+    const ctx = useContext(AuthContext)
+
     return (
-        <main className={styles.main}>
+        <main className={`${styles.main} ${!ctx.isLightMode ? styles.darkMain : styles.lightMain }`}>
             <div className={styles.title}>
                 <h1>TODO</h1>
-                <div className={styles.toggleMode}></div>
+                <div onClick={() => onModeChange()} className={`${styles.toggleMode} ${!ctx.isLightMode ? styles.sun : styles.moon }`}></div>
             </div>
             <Input onPress={handleAddTodo} />
             <TodoList
