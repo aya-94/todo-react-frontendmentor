@@ -1,6 +1,7 @@
 import styles from './Buttons.module.css';
 import React, { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
+import { FILTER_MODE } from "../Main/Main";
 
 const Buttons = ({onFilter, filterMode, RemoveCompleted, active}) => {
 
@@ -12,33 +13,33 @@ const Buttons = ({onFilter, filterMode, RemoveCompleted, active}) => {
     
     return (
         <div className={panelClass}>
-            <button className={styles.itemsNum}>{active.length} items left</button>
-            <div className={styles.sortButtons}>
-            <button
-                    className={buttonAll}
-                    onClick={() => onFilter('all')}
-                >
-                    All
-                </button>
-                <button
-                    className={buttonActive}
-                    onClick={() => onFilter('active')}
-                >
-                    Active
-                </button>
-                <button
-                    className={buttonCompleted}
-                    onClick={() => onFilter('completed')}
-                >
-                    Completed
-                </button>
-            </div>
+            <button className={styles.itemsNum}>{active} items left</button>
             <button 
                 className={styles.clearComplete}
                 onClick={() => RemoveCompleted()} 
                 >
                     Clear Completed
                 </button>
+            <div className={styles.sortButtons}>
+                <button
+                    className={buttonAll}
+                    onClick={() => onFilter(FILTER_MODE.ALL)}
+                >
+                    All
+                </button>
+                <button
+                    className={buttonActive}
+                    onClick={() => onFilter(FILTER_MODE.ACTIVE)}
+                >
+                    Active
+                </button>
+                <button
+                    className={buttonCompleted}
+                    onClick={() => onFilter(FILTER_MODE.COMPLETED)}
+                >
+                    Completed
+                </button>
+            </div>
         </div>
     )
 }

@@ -5,6 +5,12 @@ import Buttons from '../Buttons/Buttons';
 import styles from './Main.module.css';
 import AuthContext from '../../store/auth-context';
 
+export const FILTER_MODE = {
+    ALL: 'all',
+    COMPLETED: 'completed',
+    ACTIVE:'active',
+}
+
 const Main = ({ onModeChange }) => {
     const [todos, setTodos] = useState([]);
     const [filterMode, setFilterMode] = useState('all');
@@ -23,28 +29,23 @@ const Main = ({ onModeChange }) => {
         todo.id === id ? {...todo, completed: !todo.completed } : todo))
     }
 
-    const handleFilter = (val) => {
-        setFilterMode(val)
-    }
-
     const handleRemoveTodo = (id) => {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !==id))
     }
 
     const handleRemoveCompleted = () => {
-        setTodos((prevTodos) => prevTodos.filter((todo) => todo.completed === false))
+        setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed))
     }
 
-    const filteredTodos = todos.filter(todo => 
-        filterMode === 'all' ? true :
-        filterMode === 'active' ? !todo.completed :
-        filterMode === 'completed' ? todo.completed : 
-        false
-    );
+    const getFilteredTodos = (filterType) => {
+        const filteredTodos = filterType === FILTER_MODE.ALL ? todos :
+        todos.filter(todo => 
+        filterType === FILTER_MODE.ACTIVE ? !todo.completed : todo.completed
+        );
+        return filteredTodos;
+    }  
 
-    const active = todos.filter(todo => {
-        return !todo.completed;
-    });
+    const active = getFilteredTodos(FILTER_MODE.ACTIVE);
 
     const ctx = useContext(AuthContext);
     const mainClass = `${styles.main} ${!ctx.isLightMode ? styles.darkMain : styles.lightMain }`;
@@ -61,15 +62,14 @@ const Main = ({ onModeChange }) => {
             <Input onPress={handleAddTodo} />
             <div className={styles.board}>
                 <TodoList
-                    todos={filteredTodos}
+                    todos={getFilteredTodos(filterMode)}
                     onRemove={handleRemoveTodo}
                     onCheck={handleCheck}
-                    filterMode={filterMode}
                     />
                 <Buttons
-                    onFilter={handleFilter}
+                    onFilter={(val) => setFilterMode(val)}
                     filterMode={filterMode}
-                    active={active}
+                    active={active.length}
                     RemoveCompleted={handleRemoveCompleted}
                     />
             </div>

@@ -2,7 +2,7 @@ import styles from './TodoList.module.css';
 import React, { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 
-const TodoList = ({ todos, onRemove, onCheck, filterMode }) => {
+const TodoList = ({ todos, onRemove, onCheck }) => {
 
     const ctx = useContext(AuthContext);
     const listClass = `${styles.todoContainer} ${!ctx.isLightMode ? styles.darkTodo : styles.lightTodo}`;
