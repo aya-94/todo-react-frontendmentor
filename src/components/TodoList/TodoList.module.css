@@ -1,21 +1,3 @@
-.board {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 25px;
-    border-radius: 5px;
-}
-
-.darkBoard {
-    background-color: hsl(235, 24%, 19%);
-    box-shadow: 0px 25px 30px 10px hsl(234, 22%, 9%);
-}
-
-.lightBoard {
-    background-color: #fff;
-    box-shadow: 0px 25px 30px 10px rgba(210, 211, 219, 0.37);
-}
-
 ul {
     list-style: none;
     padding: 0;
@@ -28,7 +10,7 @@ li {
     position: relative;
 }
 
-.darkBoard li {
+.darkTodo li {
     border-bottom: 1px solid hsl(233, 14%, 35%);
 }
 
@@ -39,7 +21,7 @@ li {
     cursor: pointer;
 }
 
-.darkBoard .titleValue {
+.darkTodo .titleValue {
     color: hsl(234, 39%, 85%);
 }
 
@@ -51,7 +33,7 @@ li {
     text-decoration-thickness: 1px;
 }
 
-.darkBoard .titleCheck {
+.darkTodo .titleCheck {
     color: hsl(233, 14%, 35%);
 }
 
@@ -67,7 +49,7 @@ li {
     cursor: pointer;
 }
 
-.darkBoard .outerCircle {
+.darkTodo .outerCircle {
     background: hsl(237, 14%, 26%);
 }
 
@@ -99,7 +81,7 @@ li {
     cursor: pointer;
 }
 
-.darkBoard .innerCircle {
+.darkTodo .innerCircle {
     background: hsl(235, 24%, 19%);
 }
 
@@ -117,43 +99,6 @@ li {
     z-index: 99;
 }
 
-.panelContainer {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 15px;
-}
-
-button {
-    border: none;
-    font-family: 'Josefin Sans', sans-serif;
-    padding: 20px 10px;
-    background: #fff;
-    color: hsl(236, 9%, 61%);
-}
-
-.darkBoard button {
-    background: hsl(235, 24%, 19%);
-    color: hsl(233, 14%, 35%);
-}
-
-.sortButtons button {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.sortButtons button:hover,
-.clearComplete:hover {
-    color: hsl(235, 19%, 35%);
-}
-
-.darkBoard .sortButtons button:hover,
-.darkBoard .clearComplete:hover {
-    color: hsl(236, 33%, 92%);
-}
-
-.clearComplete {
-    cursor: pointer;
-}
 
 .cross {
     width: 18px;
@@ -186,11 +131,6 @@ button {
 li:hover .cross {
     display: block;
 }
-  
-.activeFilter,
-.darkBoard .activeFilter {
-    color: hsl(220, 98%, 61%);
-}
 
 .emptyList {
     padding: 25px;
@@ -199,6 +139,6 @@ li:hover .cross {
     color: hsl(233, 14%, 35%);
 }
 
-.darkBoard .emptyList {
+.darkTodo .emptyList {
     border-bottom: 1px solid hsl(233, 14%, 35%);
 }

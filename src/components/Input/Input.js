@@ -18,10 +18,11 @@ const Input = ({ onPress }) => {
         }
     }
 
-    const ctx = useContext(AuthContext)
+    const ctx = useContext(AuthContext);
+    const inputStyles = `${styles.inputContainer} ${!ctx.isLightMode ? styles.darkInput : styles.lightInput}`;
 
     return (
-        <div className={`${styles.inputContainer} ${!ctx.isLightMode ? styles.darkInput : styles.lightInput}`}>
+        <div className={inputStyles}>
             <span className={styles.circleElement}></span>
             <input 
             type="text" 

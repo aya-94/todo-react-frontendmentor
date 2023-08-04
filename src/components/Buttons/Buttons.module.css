@@ -1,0 +1,44 @@
+
+.panelContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+button {
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 20px 10px;
+    background: #fff;
+    color: hsl(236, 9%, 61%);
+}
+
+.darkButton button {
+    background: hsl(235, 24%, 19%);
+    color: hsl(233, 14%, 35%);
+}
+
+.sortButtons button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sortButtons button:hover,
+.clearComplete:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.darkButton .sortButtons button:hover,
+.darkButton .clearComplete:hover {
+    color: hsl(236, 33%, 92%);
+}
+
+.clearComplete {
+    cursor: pointer;
+}
+
+  
+.activeFilter,
+.darkButton .activeFilter {
+    color: hsl(220, 98%, 61%);
+}

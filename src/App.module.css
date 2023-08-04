@@ -5,17 +5,13 @@
 body {
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
+  background-color: hsl(235, 21%, 11%);
+  overflow-x: hidden;
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
 }
 
 .App {
   width: 100vw;
-  height: 100vh;
-}
-
-.darkBackground {
-  background-color: hsl(235, 21%, 11%);
-}
-
-.lightBackground {
-  background-color: hsl(0, 0%, 98%);
+  height: 100%;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Input from '../Input/Input';
 import TodoList from '../TodoList/TodoList';
+import Buttons from '../Buttons/Buttons';
 import styles from './Main.module.css';
 import AuthContext from '../../store/auth-context';
 
@@ -23,9 +24,7 @@ const Main = ({ onModeChange }) => {
     }
 
     const handleFilter = (val) => {
-        console.log(val)
         setFilterMode(val)
-        console.log(filterMode)
     }
 
     const handleRemoveTodo = (id) => {
@@ -36,36 +35,44 @@ const Main = ({ onModeChange }) => {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo.completed === false))
     }
 
-    const filteredTodos = todos.filter(todo => {
-        if (filterMode === 'all') return true;
-        if (filterMode === 'active') return !todo.completed;
-        if (filterMode === 'completed') return todo.completed;
-
-        return false;
-    });
+    const filteredTodos = todos.filter(todo => 
+        filterMode === 'all' ? true :
+        filterMode === 'active' ? !todo.completed :
+        filterMode === 'completed' ? todo.completed : 
+        false
+    );
 
     const active = todos.filter(todo => {
         return !todo.completed;
     });
 
-    const ctx = useContext(AuthContext)
+    const ctx = useContext(AuthContext);
+    const mainClass = `${styles.main} ${!ctx.isLightMode ? styles.darkMain : styles.lightMain }`;
+    const toggleModeClass = `${styles.toggleMode} ${!ctx.isLightMode ? styles.sun : styles.moon }`;
 
     return (
-        <main className={`${styles.main} ${!ctx.isLightMode ? styles.darkMain : styles.lightMain }`}>
+        <main className={mainClass}>
             <div className={styles.title}>
                 <h1>TODO</h1>
-                <div onClick={() => onModeChange()} className={`${styles.toggleMode} ${!ctx.isLightMode ? styles.sun : styles.moon }`}></div>
+                <div 
+                    onClick={() => onModeChange()} 
+                    className={toggleModeClass}></div>
             </div>
             <Input onPress={handleAddTodo} />
-            <TodoList
-            todos={filteredTodos}
-            onRemove={handleRemoveTodo}
-            onCheck={handleCheck}
-            onFilter={handleFilter}
-            filterMode={filterMode}
-            active={active}
-            RemoveCompleted={handleRemoveCompleted}
-            />
+            <div className={styles.board}>
+                <TodoList
+                    todos={filteredTodos}
+                    onRemove={handleRemoveTodo}
+                    onCheck={handleCheck}
+                    filterMode={filterMode}
+                    />
+                <Buttons
+                    onFilter={handleFilter}
+                    filterMode={filterMode}
+                    active={active}
+                    RemoveCompleted={handleRemoveCompleted}
+                    />
+            </div>
             <span className={styles.footer}>Drag and drop to record list</span>
         </main>
     )

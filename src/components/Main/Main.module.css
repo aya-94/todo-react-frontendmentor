@@ -11,6 +11,8 @@
 
 .darkMain {
     background: url('../../../images/bg-desktop-dark.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .title {
@@ -38,9 +40,25 @@ h1 {
     background-image: url('../../../images/icon-sun.svg');
 }
 
+.board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 5px;    
+    background-color: #fff;
+    box-shadow: 0px 25px 30px 10px rgba(210, 211, 219, 0.37);
+}
+
+.darkMain .board {
+    background-color: hsl(235, 24%, 19%);
+    box-shadow: 0px 25px 30px 10px hsl(234, 22%, 9%);
+}
+
 .footer {
     align-self: center;
     margin-top: 55px;
+    padding-bottom: 55px;
     font-size: 14px;
     color: hsl(236, 9%, 61%);
 }
