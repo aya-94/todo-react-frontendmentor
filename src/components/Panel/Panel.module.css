@@ -1,0 +1,84 @@
+.panelContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+button {
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 20px 10px;
+    background: #fff;
+    color: hsl(236, 9%, 61%);
+    font-size: 14px;
+}
+
+.darkPanel button,
+.darkPanel .itemsNum {
+    background: hsl(235, 24%, 19%);
+    color: hsl(233, 14%, 35%);
+}
+
+.itemsNum {
+    order: 1;
+    padding: 20px 10px;
+    background: #fff;
+    color: hsl(236, 9%, 61%);
+}
+
+.sortButtons {
+    order: 2;
+}
+
+.clearComplete {
+    order: 3;
+}
+
+.sortButtons button {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sortButtons button:hover,
+.clearComplete:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.darkPanel .sortButtons button:hover,
+.darkPanel .clearComplete:hover {
+    color: hsl(236, 33%, 92%);
+}
+
+.clearComplete {
+    cursor: pointer;
+}
+  
+.activeFilter,
+.darkPanel .activeFilter {
+    color: hsl(220, 98%, 61%);
+}
+
+@media only screen and (max-width: 1140px) {
+    .panelContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .itemsNum {
+        order: 1;
+        justify-self: start;
+    }
+    
+    .sortButtons {
+        order: 3;
+        justify-self: center;
+        grid-column: span 2;
+    }
+    
+    .clearComplete {
+        order: 2;
+        justify-self: end;
+    }
+}

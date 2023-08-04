@@ -67,3 +67,60 @@ h1 {
     color: hsl(233, 14%, 35%);
 }
 
+@media only screen and (max-width: 1140px) {
+    .main {
+        padding: 0 28%;
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    .main {
+        padding: 0 25%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main {
+        padding: 0 20%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .main {
+        padding: 0 15%;
+        height: 200px;
+    }
+
+    h1 {
+        color: #fff;
+        margin: 70px 0 45px 0;
+        letter-spacing: .4em;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .main {
+        padding: 0 10%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main {
+        padding: 0 7%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .main { 
+        background: url('../../../images/bg-mobile-light.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .darkMain {
+        background: url('../../../images/bg-mobile-dark.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+  }

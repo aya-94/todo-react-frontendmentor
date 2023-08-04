@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Input from '../Input/Input';
 import TodoList from '../TodoList/TodoList';
-import Buttons from '../Buttons/Buttons';
+import Panel from '../Panel/Panel';
 import styles from './Main.module.css';
 import AuthContext from '../../store/auth-context';
 
@@ -66,7 +66,7 @@ const Main = ({ onModeChange }) => {
                     onRemove={handleRemoveTodo}
                     onCheck={handleCheck}
                     />
-                <Buttons
+                <Panel
                     onFilter={(val) => setFilterMode(val)}
                     filterMode={filterMode}
                     active={active.length}
