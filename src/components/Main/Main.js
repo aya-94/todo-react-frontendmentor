@@ -48,8 +48,8 @@ const Main = ({ onModeChange }) => {
     const active = getFilteredTodos(FILTER_MODE.ACTIVE);
 
     const ctx = useContext(AuthContext);
-    const mainClass = `${styles.main} ${!ctx.isLightMode ? styles.darkMain : styles.lightMain }`;
-    const toggleModeClass = `${styles.toggleMode} ${!ctx.isLightMode ? styles.sun : styles.moon }`;
+    const mainClass = `${styles.main} ${!ctx.isLightMode ? styles.darkMain : '' }`;
+    const toggleModeClass = `${styles.toggleMode} ${!ctx.isLightMode ? styles.sun : '' }`;
 
     return (
         <main className={mainClass}>

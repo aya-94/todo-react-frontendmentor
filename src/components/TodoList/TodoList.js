@@ -5,7 +5,7 @@ import AuthContext from '../../store/auth-context';
 const TodoList = ({ todos, onRemove, onCheck }) => {
 
     const ctx = useContext(AuthContext);
-    const listClass = `${styles.todoContainer} ${!ctx.isLightMode ? styles.darkTodo : styles.lightTodo}`;
+    const listClass = `${styles.todoContainer} ${!ctx.isLightMode ? styles.darkTodo : ''}`;
     
     return (
         <div className={listClass}>

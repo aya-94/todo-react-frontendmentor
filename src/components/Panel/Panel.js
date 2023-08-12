@@ -6,7 +6,7 @@ import { FILTER_MODE } from "../Main/Main";
 const Panel = ({onFilter, filterMode, RemoveCompleted, active}) => {
 
     const ctx = useContext(AuthContext);
-    const panelClass = `${styles.panelContainer} ${!ctx.isLightMode ? styles.darkPanel : styles.lightPanel}`
+    const panelClass = `${styles.panelContainer} ${!ctx.isLightMode ? styles.darkPanel : ''}`
     const buttonAll = `${styles.all} ${filterMode === 'all' ? styles.activeFilter : ''}`;
     const buttonActive = `${styles.active} ${filterMode === 'active' ? styles.activeFilter : ''}`;
     const buttonCompleted = `${styles.completed} ${filterMode === 'completed' ? styles.activeFilter : ''}`;
