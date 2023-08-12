@@ -2,6 +2,30 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 18rem;
+    overflow: auto;
+}
+
+ul::-webkit-scrollbar {
+    width: 3px;
+}
+
+ul::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.darkTodo ul::-webkit-scrollbar-track {
+    background-color: hsl(235, 24%, 19%);
+}
+
+ul::-webkit-scrollbar-thumb {
+    background-color: hsl(236, 33%, 92%);
+    border-radius: 5px;
+}
+
+.darkTodo ul::-webkit-scrollbar-thumb {
+    background-color: hsl(233, 14%, 35%);
 }
 
 li {
